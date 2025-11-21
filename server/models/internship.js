@@ -21,6 +21,8 @@ const internshipSchema = new mongoose.Schema({
     status: { type: String, default: "active" }
 }, { timestamps: true });
 
+//indexes for efficient searching
 internshipSchema.index({ title: "text", descriptionText: "text" });
+internshipSchema.index({ date_posted: -1 });
 
 module.exports = mongoose.model("Internship", internshipSchema);
